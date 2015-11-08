@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class GreetingController {
 
-    @RequestMapping("/greeting/{name}")
-    HttpEntity<Greeting> greet(@PathVariable("name") String name) {
+    @RequestMapping('/greeting/{name}')
+    HttpEntity<Greeting> greet(@PathVariable('name') String name) {
         Greeting greeting = new Greeting(name: name)
         new ResponseEntity<>(greeting, HttpStatus.OK)
+    }
+
+    @RequestMapping('/greeting')
+    HttpEntity<Greeting> greet() {
+        greet('World')
     }
 }
