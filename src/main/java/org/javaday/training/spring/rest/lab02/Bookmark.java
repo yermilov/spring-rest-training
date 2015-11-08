@@ -1,6 +1,7 @@
 package org.javaday.training.spring.rest.lab02;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Bookmark {
+public class Bookmark extends ResourceSupport {
 
     @JsonIgnore
     @ManyToOne
@@ -38,7 +39,7 @@ public class Bookmark {
         this.account = account;
     }
 
-    public Long getId() {
+    public Long getBookmarkId() {
         return id;
     }
 

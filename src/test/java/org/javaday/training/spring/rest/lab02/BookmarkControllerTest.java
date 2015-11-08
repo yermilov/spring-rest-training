@@ -98,7 +98,7 @@ public class BookmarkControllerTest {
                 + this.bookmarkList.get(0).getId()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.id", is(this.bookmarkList.get(0).getId().intValue())))
+                .andExpect(jsonPath("$.id", is(this.bookmarkList.get(0).getBookmarkId().intValue())))
                 .andExpect(jsonPath("$.uri", is("http://bookmark.com/1/" + userName)))
                 .andExpect(jsonPath("$.description", is("A description")));
     }
@@ -109,10 +109,10 @@ public class BookmarkControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].id", is(this.bookmarkList.get(0).getId().intValue())))
+                .andExpect(jsonPath("$[0].id", is(this.bookmarkList.get(0).getBookmarkId().intValue())))
                 .andExpect(jsonPath("$[0].uri", is("http://bookmark.com/1/" + userName)))
                 .andExpect(jsonPath("$[0].description", is("A description")))
-                .andExpect(jsonPath("$[1].id", is(this.bookmarkList.get(1).getId().intValue())))
+                .andExpect(jsonPath("$[1].id", is(this.bookmarkList.get(1).getBookmarkId().intValue())))
                 .andExpect(jsonPath("$[1].uri", is("http://bookmark.com/2/" + userName)))
                 .andExpect(jsonPath("$[1].description", is("A description")));
     }
