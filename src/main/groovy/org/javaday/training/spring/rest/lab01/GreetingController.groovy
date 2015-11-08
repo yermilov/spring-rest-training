@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 class GreetingController {
 
     @RequestMapping('/greeting/{name}')
-    HttpEntity<Greeting> greet(@PathVariable('name') String name) {
+    HttpEntity<Greeting> greet(@PathVariable String name) {
         Greeting greeting = new Greeting(name: name)
         new ResponseEntity<>(greeting, HttpStatus.OK)
     }
