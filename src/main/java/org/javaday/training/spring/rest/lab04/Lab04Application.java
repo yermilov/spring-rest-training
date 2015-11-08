@@ -17,22 +17,6 @@ import java.util.Arrays;
 @EnableAutoConfiguration
 public class Lab04Application {
 
-    @Bean
-    public CommandLineRunner init(AccountRepository accountRepository,
-                           BookmarkRepository bookmarkRepository) {
-        return (evt) -> Arrays.asList(
-                "jhoeller,dsyer,pwebb,ogierke,rwinch,mfisher,mpollack,jlong".split(","))
-                .forEach(
-                        a -> {
-                            Account account = accountRepository.save(new Account(a,
-                                    "password"));
-                            bookmarkRepository.save(new Bookmark(account,
-                                    "http://bookmark.com/1/" + a, "A description"));
-                            bookmarkRepository.save(new Bookmark(account,
-                                    "http://bookmark.com/2/" + a, "A description"));
-                        });
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(Lab04Application.class, args);
     }
