@@ -41,12 +41,12 @@ class BookmarkController {
     }
 
     @RequestMapping(value = "/{username}/bookmarks", method = RequestMethod.POST)
-    public HttpEntity<Bookmark> createBookmark(@PathVariable String username, @RequestBody Bookmark bookmark) {
+    public HttpEntity<?> createBookmark(@PathVariable String username, @RequestBody Bookmark bookmark) {
         Account account = accountRepository.findByUsername(username).orElseThrow(() -> new AccountNotExistsException(username));
 
         bookmark.setAccount(account);
         bookmarkRepository.save(bookmark);
 
-        return new ResponseEntity<>(bookmark, HttpStatus.CREATED);
+        return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
 }
