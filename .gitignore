@@ -1,0 +1,15 @@
+# Intellij
+.idea/
+out/
+*.iml
+*.iws
+
+# Gradle
+gradle/
+.gradle/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
